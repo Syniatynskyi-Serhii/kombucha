@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чайний оцет "Комбуча класик"</title>
+
+    <!-- Google Tag Manager (вставити свій ID замість GTM-XXXXXXX) -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+    <!-- End Google Tag Manager -->
+
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; max-width: 800px; line-height: 1.6; }
+        .product-card { border: 1px solid #ccc; padding: 20px; border-radius: 8px; }
+        .price { font-size: 1.2em; font-weight: bold; color: #2e7d32; }
+        button { background-color: #2e7d32; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+        form { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
+        input { padding: 8px; width: 100%; box-sizing: border-box; }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header>
+        <h1>Чайний оцет «Комбуча класик»</h1>
+        <p>100% натуральний продукт без спирту та консервантів.</p>
+    </header>
+
+    <main>
+        <section class="product-card">
+            <h2>Опис продукту</h2>
+            <p>Покращує смакові якості та біологічну цінність їжі. Збагачує практично будь-яку страву.</p>
+            <p class="price" id="product-price" data-price="120">Ціна: 120 грн (0,25 л)</p>
+            
+            <!-- Кнопка для тестування звичайного кліку в GTM -->
+            <button id="btn-details" data-product="kombucha-classic">Дізнатися більше</button>
+
+            <hr>
+
+            <h3>Форма замовлення</h3>
+            <!-- Форма для тестування відправки даних та перехоплення в Data Layer -->
+            <form id="order-form">
+                <label for="user-name">Ім'я:</label>
+                <input type="text" id="user-name" name="name" required placeholder="Сергій">
+
+                <label for="user-phone">Телефон:</label>
+                <input type="tel" id="user-phone" name="phone" required placeholder="+380000000000">
+
+                <button type="submit" id="btn-submit-order">Замовити продукт</button>
+            </form>
+        </section>
+
+        <section>
+            <h3>Контакти та доставка</h3>
+            <p>Доставка: Укрпошта, Нова Пошта. Самовивіз: Одеса.</p>
+            <p>Телефонуйте: <a href="tel:+380503439797" id="contact-phone">+38 (050) 343-97-97</a></p>
+            <p>Написати в <a href="https://t.me/" id="link-telegram">Telegram</a></p>
+        </section>
+    </main>
+
+    <script>
+        // JS скрипт для емуляції відправки форми та передачі даних у Data Layer
+        document.getElementById('order-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Зупиняємо реальне перезавантаження сторінки
+            
+            // Формуємо об'єкт window.dataLayer для GTM
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'purchase_lead',
+                'product_name': 'Чайний оцет Комбуча класик',
+                'product_price': 120,
+                'currency': 'UAH'
+            });
+
+            alert('Замовлення імітовано! Подія purchase_lead відправлена в dataLayer.');
+        });
+    </script>
+</body>
+</html>
